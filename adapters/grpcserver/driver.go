@@ -16,13 +16,17 @@ type Driver struct {
 	client         GreeterClient
 }
 
+func (d *Driver) Curse(name string) (string, error) {
+	return "", nil
+}
+
 func (d *Driver) Greet(name string) (string, error) {
 	//todo: we shouldn't redial every time we call greet, refactor out when we're green
-	client,err:=d.getClient()
+	client, err := d.getClient()
 	if err != nil {
 		return "", err
 	}
-	
+
 	greeting, err := client.Greet(context.Background(), &GreetRequest{
 		Name: name,
 	})
@@ -40,4 +44,10 @@ func (d *Driver) getClient() (GreeterClient, error) {
 		d.client = NewGreeterClient(d.conn)
 	})
 	return d.client, err
+}
+
+func (d *Driver) Close() {
+	if d.conn != nil {
+		d.conn.Close()
+	}
 }
