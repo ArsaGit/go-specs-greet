@@ -29,6 +29,9 @@ type GreetServer struct {
 }
 
 func (g GreetServer) Curse(ctx context.Context, request *grpcserver.GreetRequest) (*grpcserver.GreetReply, error) {
+	/* TODO Extract domain logic
+	Use specification as a unit test against your domain logic
+	*/
 	return &grpcserver.GreetReply{Message: fmt.Sprintf("Go to hell, %s!", request.Name)}, nil
 }
 

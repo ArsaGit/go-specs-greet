@@ -16,3 +16,5 @@ message GreetRequest {
 message GreetReply {
   string message = 1;
 }
+
+// TODO Add message types for Curse
