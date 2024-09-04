@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/ArsaGit/go-specs-greet/adapters"
-	"github.com/ArsaGit/go-specs-greet/adapters/grpc_server"
+	"github.com/ArsaGit/go-specs-greet/adapters/grpcserver"
 	"github.com/ArsaGit/go-specs-greet/specifications"
 )
 

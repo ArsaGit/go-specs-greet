@@ -1,5 +1,5 @@
 # Make sure to specify the same Go version as the one in the go.mod file.
-FROM golang:1.18-alpine
+FROM golang:1.23-alpine
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o svr cmd/grpcserver/*.go
+RUN go build -o svr "cmd/grpcserver/main.go"
 
 EXPOSE 8080
 CMD [ "./svr" ]
